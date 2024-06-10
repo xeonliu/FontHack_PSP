@@ -1,0 +1,66 @@
+# This is a reversed version of the original sceLibFont's export 
+# The Exported Module Name is "sceLibFont"
+# The Function NIDs should be the same with the original sceLibFont
+# The Function Names are from fontfuck.c
+
+PSP_BEGIN_EXPORTS
+
+# These four lines are mandatory (although you can add other functions like module_stop)
+# syslib is a psynonym for the single mandatory export.
+# Based on uofw & reversed results of sceLibFont
+PSP_EXPORT_START(syslib, 0, 0x8000)
+PSP_EXPORT_FUNC_HASH(module_start)
+PSP_EXPORT_FUNC_HASH(module_stop)
+PSP_EXPORT_VAR_HASH(module_info)
+PSP_EXPORT_END
+
+# Export sceLibFont functions
+# Based on https://github.com/Spenon-dev/PSPLibDoc/blob/main/PSPLibDoc/6.60/Export/vsh/module/libfont_arib.xml
+# Total 34 Functions (only 28 useful)
+
+# Deprecated Ones
+# sceLibFont_ARIB_26149723 - 0x26149723
+# sceFontIsElement - 0x33FFD07C
+# sceLibFont_ARIB_48592C48 - 0x48592C48
+# sceLibFont_ARIB_A4B8DDFE - 0xA4B8DDFE
+# sceLibFont_ARIB_E0DBDE75 - 0xE0DBDE75
+# sceLibFont_ARIB_F0AD0FE7 - 0xF0AD0FE7
+
+PSP_EXPORT_START(sceLibFont, 0x0011, 0x0001)
+PSP_EXPORT_FUNC_NID(sceFontFlush, 0x02D7F94B)
+PSP_EXPORT_FUNC_NID(sceFontFindOptimumFont, 0x099EF33C)
+PSP_EXPORT_FUNC_NID(sceFontGetFontInfo, 0x0DA7535E)
+# PSP_EXPORT_FUNC_NID(sceLibFont_ARIB_26149723, 0x26149723)
+PSP_EXPORT_FUNC_NID(sceFontGetNumFontList, 0x27F6E642)
+PSP_EXPORT_FUNC_NID(sceFontCalcMemorySize, 0x2F67356A)
+# PSP_EXPORT_FUNC_NID(sceFontIsElement, 0x33FFD07C)
+PSP_EXPORT_FUNC_NID(sceFontClose, 0x3AEA8CB6)
+PSP_EXPORT_FUNC_NID(sceFontPointToPixelV, 0x3C4B7E82)
+PSP_EXPORT_FUNC_NID(sceFontPointToPixelH, 0x472694CD)
+PSP_EXPORT_FUNC_NID(sceFontSetResolution, 0x48293280)
+# PSP_EXPORT_FUNC_NID(sceLibFont_ARIB_48592C48, 0x48592C48)
+PSP_EXPORT_FUNC_NID(sceFontGetShadowImageRect, 0x48B06520)
+PSP_EXPORT_FUNC_NID(sceFontGetFontInfoByIndexNumber, 0x5333322D)
+PSP_EXPORT_FUNC_NID(sceFontGetShadowGlyphImage, 0x568BE516)
+PSP_EXPORT_FUNC_NID(sceFontDoneLib, 0x574B6FBC)
+PSP_EXPORT_FUNC_NID(sceFontOpenUserFile, 0x57FCB733)
+PSP_EXPORT_FUNC_NID(sceFontGetCharImageRect, 0x5C3E4A9E)
+PSP_EXPORT_FUNC_NID(sceFontGetShadowGlyphImage_Clip, 0x5DCF6858)
+PSP_EXPORT_FUNC_NID(sceFontNewLib, 0x67F17ED7)
+PSP_EXPORT_FUNC_NID(sceFontFindFont, 0x681E61A7)
+PSP_EXPORT_FUNC_NID(sceFontPixelToPointH, 0x74B21701)
+PSP_EXPORT_FUNC_NID(sceFontGetCharGlyphImage, 0x980F4895)
+# PSP_EXPORT_FUNC_NID(sceLibFont_ARIB_A4B8DDFE, 0xA4B8DDFE)
+PSP_EXPORT_FUNC_NID(sceFontOpen, 0xA834319D)
+PSP_EXPORT_FUNC_NID(sceFontGetShadowInfo, 0xAA3DE7B5)
+PSP_EXPORT_FUNC_NID(sceFontOpenUserMemory, 0xBB8E7FE6)
+PSP_EXPORT_FUNC_NID(sceFontGetFontList, 0xBC75D85B)
+PSP_EXPORT_FUNC_NID(sceFontGetCharGlyphImage_Clip, 0xCA1E6945)
+PSP_EXPORT_FUNC_NID(sceFontGetCharInfo, 0xDCC80C2F)
+# PSP_EXPORT_FUNC_NID(sceLibFont_ARIB_E0DBDE75, 0xE0DBDE75)
+PSP_EXPORT_FUNC_NID(sceFontSetAltCharacterCode, 0xEE232411)
+# PSP_EXPORT_FUNC_NID(sceLibFont_ARIB_F0AD0FE7, 0xF0AD0FE7)
+PSP_EXPORT_FUNC_NID(sceFontPixelToPointV, 0xF8F0752E)
+PSP_EXPORT_END
+
+PSP_END_EXPORTS
