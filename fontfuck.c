@@ -171,6 +171,7 @@ static int my_seek(void *pdata, void *fileid, int offset)
     return sceIoLseek32((SceUID)fileid, offset, PSP_SEEK_SET) < 0 ? SCE_FONT_ERROR_FILESEEK : 0;
 }
 
+/* Patch IO Functions */
 int sceFontNewLib(sceFont_t_initRec *params, int *errorCode)
 {
     if (params->openFunc == NULL)
