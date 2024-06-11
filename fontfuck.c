@@ -17,7 +17,7 @@
 
 // https://github.com/pspdev/pspsdk/blob/master/src/user/pspmoduleinfo.h
 
-PSP_MODULE_INFO("fontfuck", PSP_MODULE_SINGLE_LOAD | PSP_MODULE_SINGLE_START, 1, 1);
+PSP_MODULE_INFO("fontfuck", PSP_MODULE_USER, 1, 1);
 
 // https://github.com/hz86/mgspw/blob/master/jmpfont.c
 typedef struct sceFont_t_initRec
@@ -182,7 +182,14 @@ int sceFontNewLib(sceFont_t_initRec *params, int *errorCode)
         params->seekFunc = (void *)my_seek;
     }
 
-    return sceFtttNewLib((int)params, (int)errorCode);
+    int ret;
+
+    while ((ret = sceFtttNewLib((int)params, (int)errorCode)) == SCE_ERROR_KERNEL_LIBRARY_IS_NOT_LINKED)
+    {
+        sceKernelDelayThread(200000);
+    }
+
+    return ret;
 }
 
 /* Patch Open Function */
@@ -196,7 +203,7 @@ int sceFontGetFontInfo(int fontHandle, PGFFontInfo *fontInfoPtr)
 {
     int ret = sceFtttGetFontInfo(fontHandle, (int *)fontInfoPtr);
 
-    /* Make sure it's the same with PSP's pre-installed jpn0.pgf, Otherwise the font will glitch. */
+    /* Make sure it's the same with PSP's pre-installed jpn0.pgf, Otherwise the font will glitch in PPSSPP. */
     // Change Max Width to 0x0013 pixels
     fontInfoPtr->maxGlyphWidth = 0x0013;
     // Change Max Height to 0x0014 pixels

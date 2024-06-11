@@ -14,7 +14,8 @@ ASFLAGS = $(CFLAGS)
 LIBDIR =
 
 LDFLAGS = -nostartfiles
-LIBS = -lpspkernel
+# Do not link to kernel libs
+LIBS = 
 
 PSPSDK=$(shell psp-config --pspsdk-path)
 include $(PSPSDK)/lib/build.mak

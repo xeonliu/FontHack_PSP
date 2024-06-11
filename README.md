@@ -30,3 +30,8 @@ Thus we can create a moudule with the same export name and function NIDs to subs
 + `exports.exp` is used to generate export entries of the fontfuck library.
 
 + `fontfuck.c` is the main file. It wraps and modifies the behavior of **3** functions in `sceLibFont`
+
+# Test
++ The Library was tested on PSP Hardware.
++ `PPSSPP` artifacts in this [PR](https://github.com/hrydgard/ppsspp/pull/19115/checks) works fine.
++ `jpcsp` doesn't seem to work

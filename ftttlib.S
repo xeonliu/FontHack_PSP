@@ -2,7 +2,7 @@
 
 #include "pspstub.s"
 
-	STUB_START "sceLibFttt",0x00090000,0x001C0005
+	STUB_START "sceLibFttt",0x00090011,0x001C0005
 	STUB_FUNC  0x02D7F94B,sceFtttFlush
 	STUB_FUNC  0x099EF33C,sceFtttFindOptimumFont
 	STUB_FUNC  0x0DA7535E,sceFtttGetFontInfo
